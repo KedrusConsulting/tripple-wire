@@ -105,7 +105,7 @@ const Blog = () => {
         </GridContainer>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Link to={"/"}>
+          <Link to={"https://triplewire.ng/blog"}>
             <Image src={viewblog} />
           </Link>
         </div>

@@ -3,6 +3,8 @@ import Container from "../Container";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { devices } from "../../breakpoints";
 import Image from "../Image";
+import { useState } from "react";
+import MobileNav from "./Mobile";
 
 const Nav = styled.nav`
   padding: 1.6rem 0;
@@ -82,60 +84,70 @@ const Logo = styled.img`
 `;
 
 const Navigation = () => {
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname);
+
+  const handleOnClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <Nav>
-      <Container>
-        <NavBar>
-          <Link to={"/"}>
-            <Logo src="/logo.svg" />
-          </Link>
+    <>
+      <Nav>
+        <Container>
+          <NavBar>
+            <Link to={"/"}>
+              <Logo src="/logo.svg" />
+            </Link>
 
-          <NavList>
-            <NavButton onClick={() => navigate("/playnow")}>Play Now</NavButton>
-            <NavLink
-              className={`nav-link${
-                pathname === "/terms" || pathname === "/privacy"
-                  ? "dark-green"
-                  : ""
-              }`}
-              to="/about"
-            >
-              About
-            </NavLink>
-            <NavLink
-              className={`nav-link ${
-                pathname === "/terms" || pathname === "/privacy"
-                  ? "dark-green"
-                  : ""
-              }`}
-              to="https://triplewire.ng/blog"
-            >
-              Blog
-            </NavLink>
-            <NavLink
-              className={`nav-link ${
-                pathname === "/terms" || pathname === "/privacy"
-                  ? "dark-green"
-                  : ""
-              }`}
-              to="/#faqs"
-            >
-              FAQs
-            </NavLink>
+            <NavList>
+              <NavButton onClick={() => navigate("/playnow")}>
+                Play Now
+              </NavButton>
+              <NavLink
+                className={`nav-link${
+                  pathname === "/terms" || pathname === "/privacy"
+                    ? "dark-green"
+                    : ""
+                }`}
+                to="/about"
+              >
+                About
+              </NavLink>
+              <NavLink
+                className={`nav-link ${
+                  pathname === "/terms" || pathname === "/privacy"
+                    ? "dark-green"
+                    : ""
+                }`}
+                to="https://triplewire.ng/blog"
+              >
+                Blog
+              </NavLink>
+              <NavLink
+                className={`nav-link ${
+                  pathname === "/terms" || pathname === "/privacy"
+                    ? "dark-green"
+                    : ""
+                }`}
+                to="/#faqs"
+              >
+                FAQs
+              </NavLink>
 
-            <Image
-              className="nav-menu"
-              src="/icon_menu.svg"
-              onClick={() => console.log()}
-            />
-          </NavList>
-        </NavBar>
-      </Container>
-    </Nav>
+              <Image
+                className="nav-menu"
+                src="/icon_menu.svg"
+                onClick={() => setOpen((prev) => !prev)}
+              />
+            </NavList>
+          </NavBar>
+        </Container>
+      </Nav>
+
+      <MobileNav isOpen={open} onClose={handleOnClose} />
+    </>
   );
 };
 

@@ -122,6 +122,10 @@ const GridItem = styled.div`
       left: 38%;
     }
 
+    @media only screen and (max-width: 390px) {
+      left: 35%;
+    }
+
     @media only screen and (${devices.xs}) {
       left: 35%;
     }

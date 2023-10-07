@@ -285,6 +285,8 @@ const Footer = () => {
               </Link>
             </FooterItem>
           </FooterList>
+
+          <Text className="text">Built with ❤ by Kedrus.io</Text>
         </FooterWrapper>
       </Container>
     </StyledFooter>

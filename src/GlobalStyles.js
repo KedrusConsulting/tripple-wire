@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
    padding: 0;
    margin: 0;
    box-sizing: border-box;
-   transition: all 200ms;
+   transition: all 100ms;
  }
 
   html {
