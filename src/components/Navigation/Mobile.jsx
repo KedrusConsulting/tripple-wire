@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "../Image";
 import { Text } from "../Typo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const StyledMobileNav = styled.div`
@@ -95,10 +95,12 @@ const NavButton = styled.button`
 `;
 
 const MobileNav = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+
   return (
     <StyledMobileNav className={isOpen ? "open" : ""}>
       <MobileNavHeader>
-        <NavButton>Play Now</NavButton>
+        <NavButton onClick={() => navigate("/playnow")}>Play Now</NavButton>
 
         <Image src="/icon_close.svg" onClick={onClose} />
       </MobileNavHeader>

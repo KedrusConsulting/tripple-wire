@@ -3,6 +3,7 @@ import Container from "../../components/Container";
 import Section from "../../components/Section";
 import PlayNowCard from "../../components/PlayNowCard";
 import { Text } from "../../components/Typo";
+import { devices } from "../../breakpoints";
 
 const GridContainer = styled.div`
   margin-top: 5rem;
@@ -10,6 +11,11 @@ const GridContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   gap: 10rem;
+
+  @media only screen and (${devices.md}) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 `;
 
 const GridItem = styled.div``;

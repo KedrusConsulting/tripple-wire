@@ -106,7 +106,7 @@ const Navigation = () => {
                 Play Now
               </NavButton>
               <NavLink
-                className={`nav-link${
+                className={`nav-link ${
                   pathname === "/terms" || pathname === "/privacy"
                     ? "dark-green"
                     : ""
