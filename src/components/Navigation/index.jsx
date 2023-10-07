@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 import Container from "../Container";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import { devices } from "../../breakpoints";
+import Image from "../Image";
 
 const Nav = styled.nav`
   padding: 1.6rem 0;
@@ -38,6 +40,19 @@ const NavList = styled.div`
   a.dark-green:hover,
   a.dark-green:active {
     color: #24904e;
+  }
+
+  .nav-link {
+    @media only screen and (${devices.sm}) {
+      display: none;
+    }
+  }
+
+  .nav-menu {
+    display: none;
+    @media only screen and (${devices.sm}) {
+      display: inline-block;
+    }
   }
 `;
 
@@ -82,7 +97,7 @@ const Navigation = () => {
           <NavList>
             <NavButton onClick={() => navigate("/playnow")}>Play Now</NavButton>
             <NavLink
-              className={`${
+              className={`nav-link${
                 pathname === "/terms" || pathname === "/privacy"
                   ? "dark-green"
                   : ""
@@ -92,17 +107,17 @@ const Navigation = () => {
               About
             </NavLink>
             <NavLink
-              className={`${
+              className={`nav-link ${
                 pathname === "/terms" || pathname === "/privacy"
                   ? "dark-green"
                   : ""
               }`}
-              to="/blog"
+              to="https://triplewire.ng/blog"
             >
               Blog
             </NavLink>
             <NavLink
-              className={`${
+              className={`nav-link ${
                 pathname === "/terms" || pathname === "/privacy"
                   ? "dark-green"
                   : ""
@@ -111,6 +126,12 @@ const Navigation = () => {
             >
               FAQs
             </NavLink>
+
+            <Image
+              className="nav-menu"
+              src="/icon_menu.svg"
+              onClick={() => console.log()}
+            />
           </NavList>
         </NavBar>
       </Container>

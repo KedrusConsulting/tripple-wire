@@ -123,7 +123,7 @@ const CMPetra = () => {
             </CMPetraContent>
 
             <div className="ceptra--video">
-              <Player controls>
+              <Player controls poster="/tripple-wire-youtube.jpg">
                 <Source src={videoSrc} type="video/mp4" />
               </Player>
             </div>

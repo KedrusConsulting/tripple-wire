@@ -15,13 +15,18 @@ const H1 = styled.h1`
   font-weight: 800;
 
   @media only screen and (${devices.sm}) {
-    font-size: 4.2rem;
-    line-height: 4.8rem;
+    font-size: 5.2rem;
+    line-height: 6rem;
   }
 
   @media only screen and (${devices.xs}) {
+    font-size: 4.6rem;
+    line-height: 5.6rem;
+  }
+
+  @media only screen and (max-width: 320px) {
     font-size: 3.8rem;
-    line-height: 4.6rem;
+    line-height: 4.8rem;
   }
 
   span {

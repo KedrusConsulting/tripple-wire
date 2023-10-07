@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Lottie from "react-lottie";
 
 import animationData from "../../assets/moving_lines.json";
+import { devices } from "../../breakpoints";
 
 export const defaultOptions = {
   loop: true,
@@ -60,6 +61,12 @@ const ModalContent = styled.div`
     }
   }
 
+  .lottie {
+    @media only screen and (${devices.md}) {
+      transform: scale(3);
+    }
+  }
+
   @keyframes slideInModal {
     from {
       top: 30%;
@@ -97,6 +104,7 @@ const Modal = ({ children, isOpen, onClose }) => {
         </ModalButton>
 
         <Lottie
+          className="lottie"
           options={defaultOptions}
           style={{
             height: "90vh",

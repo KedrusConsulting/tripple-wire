@@ -235,7 +235,7 @@ const HowTo = () => {
               <GridContainer>
                 <GridItem>
                   <Text className="big-text--green">
-                    Play with{" "}
+                    {/* Play with{" "}
                     <Text as="span" className="yellow">
                       N300
                     </Text>
@@ -248,13 +248,16 @@ const HowTo = () => {
                       N1000
                     </Text>{" "}
                     and stand a chance to WIN a Landed property in any of the
-                    given categories!
+                    given categories! */}
+                    Go to your text message and Text TIPA to 5776 to play for
+                    300 Naira Only
                   </Text>
 
                   <Image src="/big_text_gang.svg" className="gang" />
 
                   <Text className="text--cream">
-                    The more you play the higher your chances of winning.
+                    Once you send the message, you will get a pop up on your
+                    screen asking you to accept. Press 1 to accept.
                   </Text>
                 </GridItem>
 
@@ -266,13 +269,13 @@ const HowTo = () => {
 
                 <GridItem>
                   <Text className="text--white">
-                    At the end of the 3-month duration, the raffle draw will be
-                    conducted fairly and transparently.
+                    After you press 1. You will receive a text message to
+                    confirm your request has been sent.
                   </Text>
 
                   <Text className="text--green">
-                    Winners will be announced publicly, ensuring complete
-                    transparency and trust.
+                    You can play as many times as possible to increase your
+                    chances of winning. Winners will be announced publicly
                   </Text>
                 </GridItem>
               </GridContainer>

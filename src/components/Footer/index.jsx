@@ -160,7 +160,10 @@ const Footer = () => {
             </Text>
 
             <Flexbox>
-              <FooterIcon href="">
+              <FooterIcon
+                href="https://facebook.com/triplewireng"
+                target="_blank"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 25 25"
@@ -173,7 +176,10 @@ const Footer = () => {
                 </svg>
               </FooterIcon>
 
-              <FooterIcon href="">
+              <FooterIcon
+                href="https://twitter.com/triplewireng"
+                target="_blank"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 25 25"
@@ -186,7 +192,10 @@ const Footer = () => {
                 </svg>
               </FooterIcon>
 
-              <FooterIcon href="">
+              <FooterIcon
+                href="https://instagram.com/triplewireng"
+                target="_blank"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -219,7 +228,7 @@ const Footer = () => {
             </FooterItem>
 
             <FooterItem>
-              <Link to={"/"}>Blog</Link>
+              <Link to={"https://triplewire.ng/blog"}>Blog</Link>
             </FooterItem>
           </FooterList>
 

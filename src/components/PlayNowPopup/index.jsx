@@ -2,13 +2,22 @@ import styled from "styled-components";
 import PlayNowCard from "../../components/PlayNowCard";
 import { Text } from "../../components/Typo";
 import Container from "../Container";
+import { devices } from "../../breakpoints";
 
 const GridContainer = styled.div`
   margin-top: 5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
   align-items: center;
   gap: 10rem;
+
+  @media only screen and (${devices.md}) {
+    margin-top: 3rem;
+    grid-template-columns: 1fr;
+
+    gap: 6rem;
+  }
 `;
 
 const GridItem = styled.div``;
