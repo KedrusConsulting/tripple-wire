@@ -10,6 +10,7 @@ import playnow from "../../../assets/playnow.svg";
 import Modal from "../../../components/Modal";
 import useModal from "../../../hooks/useModal";
 import PlayNowPopup from "../../../components/PlayNowPopup";
+import { devices } from "../../../breakpoints";
 
 const Wrapper = styled.div`
   .how-to--caption {
@@ -27,6 +28,18 @@ const Wrapper = styled.div`
       margin-inline: auto;
     }
   }
+
+  .anyone {
+    @media only screen and (${devices.md}) {
+      transform: translateY(5rem);
+    }
+  }
+
+  .anyone button {
+    @media only screen and (${devices.sm}) {
+      transform: scale(0.8);
+    }
+  }
 `;
 
 const StyledH2 = styled(H2)`
@@ -35,6 +48,18 @@ const StyledH2 = styled(H2)`
   font-size: 4.8rem;
   font-weight: 800;
   line-height: 5.6rem;
+
+  @media only screen and (${devices.sm}) {
+    font-size: 3.2rem;
+    margin-bottom: 0.8rem;
+  }
+`;
+
+const GridWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+
+  transform: translateY(6rem);
 `;
 
 const GridContainer = styled.div`
@@ -42,13 +67,38 @@ const GridContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 4rem;
   margin-bottom: 7.2rem;
+
+  @media only screen and (${devices.md}) {
+    grid-template-columns: 1fr;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2.4rem;
+    gap: 0.8rem;
+  }
 `;
 
 const GridItem = styled.div`
   align-self: start;
   display: grid;
   gap: 4.8rem;
-  position: relative;
+
+  @media only screen and (min-width: 961px) {
+    position: relative;
+  }
+
+  @media only screen and (${devices.sm}) {
+    gap: 2.4rem;
+  }
+
+  img {
+    @media only screen and (${devices.md}) {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+  }
 
   .mtn_users {
     position: absolute;
@@ -56,6 +106,29 @@ const GridItem = styled.div`
     left: -2rem;
     z-index: -1;
     animation: spin1 4000ms ease-in-out infinite;
+
+    @media only screen and (${devices.md}) {
+      top: 0;
+      left: 44%;
+      transform: translateX(-50%);
+    }
+
+    @media only screen and (${devices.sm}) {
+      left: 41%;
+      transform: translateX(-50%);
+    }
+
+    @media only screen and (max-width: 480px) {
+      left: 38%;
+    }
+
+    @media only screen and (${devices.xs}) {
+      left: 35%;
+    }
+
+    @media only screen and (max-width: 320px) {
+      left: 32%;
+    }
   }
 
   @keyframes spin1 {
@@ -71,6 +144,13 @@ const GridItem = styled.div`
 
   &.center {
     justify-self: center;
+
+    @media only screen and (${devices.md}) {
+      position: absolute;
+      top: -11rem;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .big-text--green {
@@ -79,6 +159,10 @@ const GridItem = styled.div`
     font-weight: 600;
     line-height: normal;
     max-width: 36.9rem;
+
+    @media only screen and (${devices.md}) {
+      max-width: 100%;
+    }
 
     .yellow {
       font: inherit;
@@ -111,6 +195,24 @@ const GridItem = styled.div`
     font-weight: 600;
     line-height: normal;
   }
+
+  .big-text--green,
+  .text--green,
+  .text--white,
+  .text--cream {
+    @media only screen and (${devices.sm}) {
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
+  }
+
+  .gang {
+    @media only screen and (${devices.md}) {
+      position: absolute;
+      top: -7.5rem;
+      z-index: 0;
+    }
+  }
 `;
 
 const HowTo = () => {
@@ -129,50 +231,52 @@ const HowTo = () => {
               </Text>
             </div>
 
-            <GridContainer>
-              <GridItem>
-                <Text className="big-text--green">
-                  Play with{" "}
-                  <Text as="span" className="yellow">
-                    N300
+            <GridWrapper>
+              <GridContainer>
+                <GridItem>
+                  <Text className="big-text--green">
+                    Play with{" "}
+                    <Text as="span" className="yellow">
+                      N300
+                    </Text>
+                    ,
+                    <Text as="span" className="grey">
+                      N500
+                    </Text>{" "}
+                    or{" "}
+                    <Text as="span" className="grey">
+                      N1000
+                    </Text>{" "}
+                    and stand a chance to WIN a Landed property in any of the
+                    given categories!
                   </Text>
-                  ,
-                  <Text as="span" className="grey">
-                    N500
-                  </Text>{" "}
-                  or{" "}
-                  <Text as="span" className="grey">
-                    N1000
-                  </Text>{" "}
-                  and stand a chance to WIN a Landed property in any of the
-                  given categories!
-                </Text>
 
-                <Image src="/big_text_gang.svg" />
+                  <Image src="/big_text_gang.svg" className="gang" />
 
-                <Text className="text--cream">
-                  The more you play the higher your chances of winning.
-                </Text>
-              </GridItem>
+                  <Text className="text--cream">
+                    The more you play the higher your chances of winning.
+                  </Text>
+                </GridItem>
 
-              <GridItem className="center">
-                <Image src="/mobile_phone.png" />
+                <GridItem className="center">
+                  <Image src="/mobile_phone.png" />
 
-                <Image className="mtn_users" src="/mtn_users_only.svg" />
-              </GridItem>
+                  <Image className="mtn_users" src="/mtn_users_only.svg" />
+                </GridItem>
 
-              <GridItem>
-                <Text className="text--white">
-                  At the end of the 3-month duration, the raffle draw will be
-                  conducted fairly and transparently.
-                </Text>
+                <GridItem>
+                  <Text className="text--white">
+                    At the end of the 3-month duration, the raffle draw will be
+                    conducted fairly and transparently.
+                  </Text>
 
-                <Text className="text--green">
-                  Winners will be announced publicly, ensuring complete
-                  transparency and trust.
-                </Text>
-              </GridItem>
-            </GridContainer>
+                  <Text className="text--green">
+                    Winners will be announced publicly, ensuring complete
+                    transparency and trust.
+                  </Text>
+                </GridItem>
+              </GridContainer>
+            </GridWrapper>
 
             <div
               className="anyone"
@@ -189,7 +293,10 @@ const HowTo = () => {
               <Image className="blur-block-2" src="/blur_block.svg" />
 
               <div className="sparkles">
-                <Lottie options={defaultOptions} height={300} width={500} />
+                <Lottie
+                  options={defaultOptions}
+                  style={{ maxWidth: "500px", height: "300px" }}
+                />
               </div>
             </div>
           </Wrapper>

@@ -3,6 +3,7 @@ import Container from "../../../components/Container";
 import styled from "styled-components";
 import { H2 } from "../../../components/Typo";
 import PlayNowCard from "../../../components/PlayNowCard";
+import { devices } from "../../../breakpoints";
 
 const Wrapper = styled.div`
   h2 {
@@ -13,6 +14,11 @@ const Wrapper = styled.div`
     font-weight: 700;
     line-height: 4.8rem; /* 100% */
     letter-spacing: -0.96px;
+
+    @media only screen and (${devices.sm}) {
+      font-size: 3rem;
+      margin-bottom: 1.6rem;
+    }
   }
 `;
 
@@ -20,6 +26,16 @@ const FlexBox = styled.div`
   display: flex;
   justify-content: center;
   gap: 15rem;
+
+  @media only screen and (${devices.md}) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10rem;
+  }
+
+  @media only screen and (${devices.md}) {
+    gap: 6rem;
+  }
 `;
 
 const FlexItem = styled.div`

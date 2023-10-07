@@ -5,6 +5,7 @@ import Image from "../../../components/Image";
 import { H2, Text } from "../../../components/Typo";
 import Lottie from "react-lottie";
 import animationData from "../../../assets/scroll_more.json";
+import { devices } from "../../../breakpoints";
 
 const FlexBox = styled.div`
   display: flex;
@@ -12,6 +13,10 @@ const FlexBox = styled.div`
   justify-content: center;
   gap: 4rem;
   margin-bottom: 4rem;
+
+  @media only screen and (${devices.sm}) {
+    flex-wrap: wrap;
+  }
 `;
 
 const Box = styled.div`

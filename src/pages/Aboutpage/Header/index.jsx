@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Container from "../../../components/Container";
 import Image from "../../../components/Image";
 import { H2, Text } from "../../../components/Typo";
+import { devices } from "../../../breakpoints";
 
 const StyledHeader = styled.header`
   padding: 8.8rem 0;
@@ -14,10 +15,28 @@ const Hero = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media only screen and (${devices.md}) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "text";
+  }
+
   .hero--content {
     display: flex;
     flex-direction: column;
     gap: 4rem;
+
+    @media only screen and (${devices.md}) {
+      grid-area: text;
+      gap: 1.6rem;
+    }
+  }
+
+  .hero--img {
+    @media only screen and (${devices.md}) {
+      grid-area: image;
+    }
   }
 
   h2 {
@@ -27,6 +46,11 @@ const Hero = styled.div`
     font-weight: 800;
     line-height: 4.8rem; /* 100% */
     letter-spacing: -0.96px;
+
+    @media only screen and (${devices.sm}) {
+      font-size: 3.2rem;
+      margin-bottom: 0.8rem;
+    }
   }
 
   p {
@@ -36,6 +60,10 @@ const Hero = styled.div`
     font-weight: 700;
     line-height: 3.2rem; /* 0px */
     letter-spacing: -0.48px;
+
+    @media only screen and (${devices.md}) {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -61,7 +89,7 @@ const Header = () => {
             </Text>
           </div>
 
-          <div>
+          <div className="hero--img">
             <Image src="/about_hero_img.png" />
           </div>
         </Hero>

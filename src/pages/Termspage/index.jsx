@@ -2,11 +2,18 @@ import Container from "../../components/Container";
 import { styled } from "styled-components";
 import { H2, Text } from "../../components/Typo";
 import Subscribe from "../../components/Subscribe";
+import { devices } from "../../breakpoints";
 
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (${devices.md}) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
 `;
 
 const Header = styled.header`
@@ -16,7 +23,6 @@ const Header = styled.header`
 
   h2 {
     color: #316014;
-    text-align: center;
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 700;

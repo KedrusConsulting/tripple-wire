@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { devices } from "../../breakpoints";
 
 const H1 = styled.h1`
   width: 80%;
@@ -12,6 +13,16 @@ const H1 = styled.h1`
   font-size: 5.6rem;
   line-height: 6rem;
   font-weight: 800;
+
+  @media only screen and (${devices.sm}) {
+    font-size: 4.2rem;
+    line-height: 4.8rem;
+  }
+
+  @media only screen and (${devices.xs}) {
+    font-size: 3.8rem;
+    line-height: 4.6rem;
+  }
 
   span {
     font: inherit;

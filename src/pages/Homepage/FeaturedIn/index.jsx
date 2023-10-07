@@ -3,6 +3,7 @@ import Container from "../../../components/Container";
 import Section from "../../../components/Section";
 import { H2 } from "../../../components/Typo";
 import Image from "../../../components/Image";
+import { devices } from "../../../breakpoints";
 
 const Wrapper = styled.div`
   h2 {
@@ -14,6 +15,11 @@ const Wrapper = styled.div`
     line-height: 4.8rem;
     letter-spacing: -0.96px;
     margin-bottom: 4.8rem;
+
+    @media only screen and (${devices.sm}) {
+      font-size: 3.2rem;
+      margin-bottom: 0.8rem;
+    }
   }
 `;
 
@@ -27,6 +33,10 @@ const FlexBox = styled.figure`
   img {
     height: 5.6rem;
     object-fit: contain;
+
+    @media only screen and (${devices.sm}) {
+      height: 4rem;
+    }
   }
 `;
 

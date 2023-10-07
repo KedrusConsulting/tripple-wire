@@ -6,10 +6,15 @@ import BlogCard from "../../../components/BlogCard";
 import Image from "../../../components/Image";
 import viewblog from "../../../assets/viewblog.svg";
 import { Link } from "react-router-dom";
+import { devices } from "../../../breakpoints";
 
 const Caption = styled.div`
   text-align: center;
   margin-bottom: 6.4rem;
+
+  @media only screen and (${devices.sm}) {
+    margin-bottom: 2.4rem;
+  }
 
   h2 {
     color: #45cf15;
@@ -19,17 +24,45 @@ const Caption = styled.div`
     font-weight: 700;
     line-height: 4.8rem; /* 100% */
     letter-spacing: -0.96px;
+
+    @media only screen and (${devices.sm}) {
+      font-size: 3rem;
+    }
   }
 `;
 
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
   gap: 4.8rem;
   margin-bottom: 4.8rem;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  @media only screen and (${devices.sm}) {
+    /* text-align: center; */
+    width: 70%;
+    margin-inline: auto;
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  & + div a {
+    transform: scale(0.8);
+  }
 `;
 
-const GridItem = styled.div``;
+const GridItem = styled.div`
+  display: grid;
+  justify-content: center;
+`;
 
 const Blog = () => {
   return (

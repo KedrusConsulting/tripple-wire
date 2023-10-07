@@ -10,6 +10,7 @@ import { defaultOptions } from "../defaultOptions";
 import Modal from "../../../components/Modal";
 import useModal from "../../../hooks/useModal";
 import PlayNowPopup from "../../../components/PlayNowPopup";
+import { devices } from "../../../breakpoints";
 
 const StyledH2 = styled(H2)`
   color: #79de3a;
@@ -17,6 +18,10 @@ const StyledH2 = styled(H2)`
   font-size: 4.8rem;
   font-weight: 800;
   line-height: 5.6rem;
+
+  @media only screen and (${devices.sm}) {
+    font-size: 3rem;
+  }
 `;
 
 const StyledText = styled(Text)`
@@ -28,6 +33,12 @@ const StyledText = styled(Text)`
   font-weight: 500;
   line-height: 4rem;
   margin-bottom: 4.8rem;
+
+  @media only screen and (${devices.sm}) {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    margin-bottom: 3rem;
+  }
 `;
 
 const FlexBox = styled.div`
@@ -35,6 +46,22 @@ const FlexBox = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 2.4rem;
+
+  @media only screen and (${devices.sm}) {
+    transform: scale(1.1);
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  button {
+    @media only screen and (${devices.sm}) {
+      transform: scale(0.9);
+    }
+
+    @media only screen and (${devices.xs}) {
+      transform: scale(0.8);
+    }
+  }
 `;
 
 const Anyone = () => {
@@ -56,7 +83,7 @@ const Anyone = () => {
           become the latest LANDLORD/LANDLADY`}
           </StyledText>
 
-          <div
+          <ButtonWrapper
             className="anyone"
             style={{
               display: "flex",
@@ -71,9 +98,12 @@ const Anyone = () => {
             <Image className="blur-block-2" src="/blur_block.svg" />
 
             <div className="sparkles">
-              <Lottie options={defaultOptions} height={300} width={500} />
+              <Lottie
+                options={defaultOptions}
+                style={{ maxWidth: "500px", height: "300px" }}
+              />
             </div>
-          </div>
+          </ButtonWrapper>
         </Container>
       </Section>
 

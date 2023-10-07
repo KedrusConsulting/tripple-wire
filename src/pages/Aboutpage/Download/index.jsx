@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Container from "../../../components/Container";
 import Section from "../../../components/Section";
 import { Text } from "../../../components/Typo";
+import { devices } from "../../../breakpoints";
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,6 +10,15 @@ const Wrapper = styled.div`
   border-radius: 3rem;
   background: #feeb62;
   padding: 8.8rem;
+
+  @media only screen and (${devices.md}) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media only screen and (${devices.sm}) {
+    padding: 8.8rem 4rem;
+  }
 
   .download-title.app-store {
     color: #2f825a;

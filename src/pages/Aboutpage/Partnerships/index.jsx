@@ -3,6 +3,7 @@ import Container from "../../../components/Container";
 import Section from "../../../components/Section";
 import { H2, Text } from "../../../components/Typo";
 import Image from "../../../components/Image";
+import { devices } from "../../../breakpoints";
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,6 +19,11 @@ const Wrapper = styled.div`
     line-height: 4.8rem; /* 100% */
     letter-spacing: -0.96px;
     margin-bottom: 6.4rem;
+
+    @media only screen and (${devices.sm}) {
+      font-size: 3.6rem;
+      margin-bottom: 4rem;
+    }
   }
 
   p {
@@ -31,6 +37,10 @@ const Wrapper = styled.div`
     max-width: 100rem;
     margin-inline: auto;
     margin-bottom: 2.4rem;
+
+    @media only screen and (${devices.sm}) {
+      font-size: 2rem;
+    }
   }
 `;
 

@@ -4,12 +4,17 @@ import { Logo } from "../Navigation";
 import { H4, Text } from "../Typo";
 import { Link, useLocation } from "react-router-dom";
 import Flexbox from "../Flexbox";
+import { devices } from "../../breakpoints";
 
 const StyledFooter = styled.footer`
   padding: 8.8rem 0;
 
   &.footer--about {
     background-color: #fff;
+  }
+
+  @media only screen and (${devices.md}) {
+    padding: 6.4rem 0;
   }
 `;
 
@@ -20,9 +25,31 @@ const FooterWrapper = styled.div`
   padding: 6.4rem 4.8rem;
   border-radius: 2.4rem;
   gap: 4rem;
+
+  @media only screen and (${devices.md}) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "summary summary summary"
+      "about legal contact";
+    gap: 5.6rem 2.4rem;
+    padding: 6.4rem 3.2rem;
+  }
+
+  @media only screen and (${devices.sm}) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "summary summary"
+      "about legal"
+      "contact contact";
+    padding: 6.4rem 2.4rem;
+  }
 `;
 
 const FooterBox = styled.div`
+  @media only screen and (${devices.md}) {
+    grid-area: summary;
+  }
+
   .logo {
     margin-bottom: 2.4rem;
   }
@@ -58,6 +85,24 @@ const FooterList = styled.ul`
     text-transform: uppercase;
     margin-bottom: 2.4rem;
   }
+
+  &.contact-about {
+    @media only screen and (${devices.md}) {
+      grid-area: about;
+    }
+  }
+
+  &.contact-legal {
+    @media only screen and (${devices.md}) {
+      grid-area: legal;
+    }
+  }
+
+  &.contact-list {
+    @media only screen and (${devices.md}) {
+      grid-area: contact;
+    }
+  }
 `;
 
 const FooterItem = styled.li`
@@ -76,6 +121,10 @@ const FooterItem = styled.li`
     font-family: inherit;
     text-decoration: none;
   }
+
+  svg {
+    flex-shrink: 0;
+  }
 `;
 
 const FooterIcon = styled.a`
@@ -90,6 +139,7 @@ const FooterIcon = styled.a`
   background: #041e0e;
 
   svg {
+    flex-shrink: 0;
     width: 2.4rem;
     height: 2.4rem;
   }
@@ -157,7 +207,7 @@ const Footer = () => {
             </Text>
           </FooterBox>
 
-          <FooterList>
+          <FooterList className="contact-about">
             <H4>ABout</H4>
 
             <FooterItem>
@@ -173,7 +223,7 @@ const Footer = () => {
             </FooterItem>
           </FooterList>
 
-          <FooterList>
+          <FooterList className="conact-legal">
             <H4>Legal</H4>
 
             <FooterItem>
@@ -185,7 +235,7 @@ const Footer = () => {
             </FooterItem>
           </FooterList>
 
-          <FooterList>
+          <FooterList className="contact-list">
             <H4>Contact</H4>
 
             <FooterItem>

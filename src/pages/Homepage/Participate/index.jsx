@@ -4,6 +4,7 @@ import Section from "../../../components/Section";
 import { H2, Text } from "../../../components/Typo";
 import Image from "../../../components/Image";
 import { Link } from "react-router-dom";
+import { devices } from "../../../breakpoints";
 
 const Wrapper = styled.div`
   p {
@@ -14,8 +15,17 @@ const Wrapper = styled.div`
     line-height: 135.5%; /* 37.94px */
     letter-spacing: -0.56px;
 
+    @media only screen and (${devices.sm}) {
+      font-size: 2rem;
+      line-height: 135.5%; /* 37.94px */
+    }
+
     &:not(:last-child) {
       margin-bottom: 6.4rem;
+
+      @media only screen and (${devices.sm}) {
+        margin-bottom: 2.4rem;
+      }
     }
   }
 
@@ -30,6 +40,10 @@ const Wrapper = styled.div`
     height: 18.7rem;
     object-fit: cover;
     margin-bottom: 6.4rem;
+
+    @media only screen and (${devices.md}) {
+      max-width: 100%;
+    }
   }
 `;
 
@@ -44,6 +58,11 @@ const Caption = styled.div`
     font-weight: 700;
     line-height: 4.8rem; /* 100% */
     letter-spacing: -0.96px;
+
+    @media only screen and (${devices.sm}) {
+      font-size: 3.2rem;
+      margin-bottom: 0.8rem;
+    }
   }
 `;
 
@@ -58,8 +77,13 @@ const LearnMore = styled.button`
 
   padding: 2rem 3.2rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (${devices.sm}) {
+    padding: 1.2rem;
+  }
 
   a:link,
   a:visited {
@@ -72,8 +96,22 @@ const LearnMore = styled.button`
     align-items: center;
     gap: 1.6rem;
 
+    @media only screen and (${devices.sm}) {
+      font-size: 1.6rem;
+    }
+
     span {
       font-size: 2.4rem;
+
+      @media only screen and (${devices.sm}) {
+        font-size: 1.6rem;
+      }
+    }
+
+    svg {
+      @media only screen and (${devices.sm}) {
+        width: 3.2rem;
+      }
     }
   }
 `;

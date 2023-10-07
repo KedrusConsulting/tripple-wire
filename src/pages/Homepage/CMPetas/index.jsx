@@ -13,6 +13,7 @@ import { defaultOptions } from "../defaultOptions";
 import Modal from "../../../components/Modal";
 import useModal from "../../../hooks/useModal";
 import PlayNowPopup from "../../../components/PlayNowPopup";
+import { devices } from "../../../breakpoints";
 
 const StyledText = styled(Text)`
   font-size: 3.2rem;
@@ -20,6 +21,17 @@ const StyledText = styled(Text)`
   font-weight: 700;
   max-width: 45rem;
   margin-bottom: 6.4rem;
+
+  @media only screen and (${devices.md}) {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  @media only screen and (${devices.sm}) {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    text-align: left;
+  }
 
   span {
     font: inherit;
@@ -30,10 +42,54 @@ const StyledText = styled(Text)`
   }
 `;
 
+const CMPetraContent = styled.div`
+  @media only screen and (${devices.md}) {
+    text-align: center;
+    width: 70%;
+    margin-inline: auto;
+  }
+
+  @media only screen and (${devices.sm}) {
+    width: 100%;
+    text-align: left;
+  }
+
+  button {
+    @media only screen and (${devices.sm}) {
+      transform: translateX(-10px) scale(0.9);
+    }
+
+    @media only screen and (${devices.xs}) {
+      transform: translateX(-20px) scale(0.8);
+    }
+  }
+
+  p {
+    @media only screen and (${devices.sm}) {
+      margin-bottom: 3.2rem;
+    }
+
+    @media only screen and (${devices.sm}) {
+      margin-bottom: 2.4rem;
+    }
+  }
+`;
+
 const Player = styled.video`
   width: 100%;
   max-width: 100%;
   height: 35rem;
+
+  @media only screen and (${devices.md}) {
+    width: 70%;
+    height: auto;
+    margin-inline: auto;
+    display: block;
+  }
+
+  @media only screen and (${devices.sm}) {
+    width: 100%;
+  }
 `;
 const Source = styled.source``;
 
@@ -45,7 +101,7 @@ const CMPetra = () => {
       <Section className="section--cmpetra">
         <Container>
           <SplitScreen>
-            <div className="cmpetra--content">
+            <CMPetraContent className="cmpetra--content">
               <StyledText>
                 <Text as="span" className="accent">
                   CM Petas global
@@ -59,11 +115,14 @@ const CMPetra = () => {
               <Image className="blur-block" src="/blur_block.svg" />
               <Image className="blur-block" src="/blur_block.svg" />
               <div className="sparkles">
-                <Lottie options={defaultOptions} height={200} width={400} />
+                <Lottie
+                  options={defaultOptions}
+                  style={{ height: "200px", maxWidth: "400px" }}
+                />
               </div>
-            </div>
+            </CMPetraContent>
 
-            <div>
+            <div className="ceptra--video">
               <Player controls>
                 <Source src={videoSrc} type="video/mp4" />
               </Player>

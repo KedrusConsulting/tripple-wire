@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { devices } from "../../breakpoints";
 
 const Header = styled.header`
   padding-top: 8.8rem;
@@ -64,10 +65,21 @@ const HeroSub = styled.div`
   margin-bottom: 2.4rem;
   padding: 3.2rem 1.6rem;
 
+  @media only screen and (${devices.sm}) {
+    max-width: 70%;
+    justify-content: center;
+    text-align: center;
+    padding: 1.6rem;
+  }
+
   .hero-subtitle {
     color: #fff;
     font-family: Mona Sans, sans-serif;
     font-weight: 800;
+
+    @media only screen and (${devices.sm}) {
+      line-height: normal;
+    }
   }
 
   .hero-accent {
@@ -108,6 +120,9 @@ const HeroCta = styled.div`
     bottom: -4px;
 
     animation: bounce 0.5s ease-in-out 5s infinite alternate-reverse;
+    @media only screen and (${devices.xs}) {
+      width: 70%;
+    }
   }
 
   .wheel {
@@ -116,12 +131,24 @@ const HeroCta = styled.div`
     animation: spin 5s infinite linear;
     transform-style: preserve-3d;
     will-change: transform;
+
+    @media only screen and (${devices.xs}) {
+      left: 49%;
+    }
   }
 
   .diamond-pin {
     top: 30%;
     transform: translate(-50%, -50%);
     z-index: 1;
+
+    @media only screen and (${devices.xs}) {
+      top: 40%;
+    }
+
+    @media only screen and (max-width: 345px) {
+      top: 50%;
+    }
   }
 
   .balls-left {

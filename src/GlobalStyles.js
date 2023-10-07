@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { devices } from "./breakpoints";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -22,10 +23,23 @@ const GlobalStyle = createGlobalStyle`
    padding: 0;
    margin: 0;
    box-sizing: border-box;
+   transition: all 200ms;
  }
 
   html {
     font-size: 10px;
+
+    @media only screen and (${devices.xl}) {
+      font-size: 9px;
+    }
+
+    @media only screen and (${devices.lg}) {
+      font-size: 8px;
+    }
+
+    @media only screen and (${devices.md}) {
+      font-size: 9px;
+    }
   }
 
   body {
@@ -34,6 +48,10 @@ const GlobalStyle = createGlobalStyle`
     line-height: 2rem;
     color: #fff;
     
+  }
+
+  img {
+    max-width: 100%;
   }
 
   button {
@@ -82,6 +100,11 @@ const GlobalStyle = createGlobalStyle`
       bottom: -10%;
       left: -10%;
       right: auto;
+
+      @media only screen and (${devices.xs}) {
+        left: auto;
+        right: auto;
+      }
     }
   }
 

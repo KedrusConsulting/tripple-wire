@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Container from "../Container";
 import Section from "../Section";
 import { H2, Text } from "../Typo";
+import { devices } from "../../breakpoints";
 
 const Wrapper = styled.div`
   display: grid;
@@ -12,6 +13,11 @@ const Wrapper = styled.div`
   background: rgba(253, 225, 2, 0.28);
   padding: 5.6rem 6.4rem;
 
+  @media only screen and (${devices.md}) {
+    grid-template-columns: 1fr;
+    padding: 5.6rem 3.2rem;
+  }
+
   h2 {
     color: #076c3c;
     font-size: 4.8rem;
@@ -20,6 +26,11 @@ const Wrapper = styled.div`
     line-height: 5.6rem; /* 121.875% */
     letter-spacing: -0.96px;
     margin-bottom: 2.4rem;
+
+    @media only screen and (${devices.sm}) {
+      font-size: 3.5rem;
+      line-height: 4.8rem;
+    }
   }
 
   p {

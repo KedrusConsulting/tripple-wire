@@ -5,6 +5,7 @@ import playbtn from "../../assets/playbtn.svg";
 import Lottie from "react-lottie";
 import animationData from "../../assets/direction.json";
 import PropTypes from "prop-types";
+import { devices } from "../../breakpoints";
 
 export const defaultOptions = {
   loop: true,
@@ -55,6 +56,10 @@ const Card = styled.div`
     margin-bottom: 2.4rem;
     margin-top: 1.6rem;
 
+    @media only screen and (${devices.sm}) {
+      transform: skewX(12deg) translate(8rem, 2rem);
+    }
+
     span {
       color: #316014;
       font-size: 2.8rem;
@@ -90,6 +95,10 @@ const Card = styled.div`
     z-index: -2;
 
     width: 20rem;
+
+    @media only screen and (${devices.sm}) {
+      display: none;
+    }
   }
 
   .card--ani {
